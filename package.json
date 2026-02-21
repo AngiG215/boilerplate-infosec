@@ -10,7 +10,6 @@
   "dotenv": "^16.x.x",
   "helmet": "3.21.3",
   "express": "^4.x.x",
-  ...
 }
 	"keywords": [
 		"node",
