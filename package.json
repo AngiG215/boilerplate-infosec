@@ -7,9 +7,11 @@
 		"start": "node myApp.js"
 	},
 	"dependencies": {
-		"express": "^4.14.0",
-		"helmet": "3.21.3"
-	},
+  "dotenv": "^16.x.x",
+  "helmet": "3.21.3",
+  "express": "^4.x.x",
+  ...
+}
 	"keywords": [
 		"node",
 		"hyperdev",
