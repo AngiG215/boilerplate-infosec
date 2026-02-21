@@ -22,7 +22,7 @@ app.use(helmet.hsts({
 // --- SEGURIDAD (Historias de usuario) ---
 app.use(helmet.noSniff());
 app.use(helmet.xssFilter());
-
+app.use(helmet.noCache());
 app.use(helmet.hidePoweredBy({ setTo: 'PHP 7.4.3' }));
 
 // --- CONFIGURACIÓN ---
