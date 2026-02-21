@@ -1,61 +1,22 @@
-const express = require('express');
+const express = require('express'); // Requerir Express
+const helmet = require('helmet');   // Requerir Helmet (Punto 3 de tu instrucción)
 const app = express();
 
+// --- TU CÓDIGO VA AQUÍ ---
 
+// Configuración de HSTS (Los puntos que corroboramos antes)
+const ninetyDaysInSeconds = 90 * 24 * 60 * 60;
 
+app.use(helmet.hsts({
+  maxAge: ninetyDaysInSeconds,
+  force: true
+}));
 
+// Otras configuraciones típicas de esas lecciones:
+app.use(helmet.hidePoweredBy());
+app.use(helmet.noSniff());
+app.use(helmet.xssFilter());
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// --- FIN DEL CÓDIGO ---
 
 module.exports = app;
-const api = require('./server.js');
-app.use(express.static('public'));
-app.disable('strict-transport-security');
-app.use('/_api', api);
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
-let port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Your app is listening on port ${port}`);
-});
